@@ -1,7 +1,10 @@
 import { Button } from "@heroui/react";
 import Link from "next/link";
 
-
+export const metadata = {
+  title: "About",
+  description: "best news portal on my world",
+};
 const AboutPage = () => {
     return (
         <div className="my-10 container mx-auto text-center space-y-2">

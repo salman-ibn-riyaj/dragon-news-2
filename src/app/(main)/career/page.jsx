@@ -1,5 +1,8 @@
 
-
+export const metadata = {
+  title: "Career",
+  description: "best news portal on my world",
+};
 const Career = () => {
     return (
         <div>

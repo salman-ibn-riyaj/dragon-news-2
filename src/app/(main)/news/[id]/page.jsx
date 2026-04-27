@@ -18,15 +18,18 @@ const DynamicNewsPage = async ({ params }) => {
       <div className="col-span-3">
         <AllCategory></AllCategory>
       </div>
+
+      {newsLists.length > 0 ? 
       
-      <div className="col-span-6">
+      <><div className="col-span-6">
         {newsLists.map((news) => (
           <NewsCard key={news._id} news={news}></NewsCard>
         ))}
       </div>
       <div className="col-span-3">
         <LogInWith></LogInWith>
-      </div>
+      </div></> : <div className="col-span-6 bg-pink-200 flex justify-center items-center p-4 rounded-md"><h2 className="font-bold text-2xl">No news available on this category</h2></div>}
+
     </div>
   );
 };

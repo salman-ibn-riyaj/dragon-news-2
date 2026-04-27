@@ -2,11 +2,12 @@ import Image from "next/image";
 import NavLinks from "./NavLinks";
 import DemoUser from '../assets/profile.png'
 import { Button } from "@heroui/react";
+import Link from "next/link";
 
 
 const Navbar = () => {
     return (
-        
+
         <div className="flex justify-between gap-4 items-center container mx-auto my-4">
             <div>
 
@@ -18,10 +19,10 @@ const Navbar = () => {
                 <li><NavLinks href={'/career'}>Career</NavLinks></li>
             </ul>
 
-            <div className="flex items-center gap-2">
+            <Link href={'/login'} className="flex items-center gap-2">
                 <Image className='mx-auto' src={DemoUser} alt='header log' height={40} width={40}></Image>
                 <Button>Login</Button>
-            </div>
+            </Link>
         </div>
     );
 };
