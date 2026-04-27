@@ -1,7 +1,9 @@
-import Image from "next/image";
+import { redirect } from "next/navigation";
+
 
 export default function Home() {
   return (
-    <h2>Hi From page...</h2>
+     redirect('/news/01')
+   
   );
 }

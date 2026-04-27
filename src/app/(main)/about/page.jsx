@@ -4,9 +4,9 @@ import Link from "next/link";
 
 const AboutPage = () => {
     return (
-        <div>
+        <div className="my-10 container mx-auto text-center space-y-2">
             <h2>Hi! I am Salman Shah</h2>
-            <Button><Link href={'https://salmanshah.vercel.app/'}>Here is My Portfolio:</Link></Button>
+            <Button><Link href={'https://salmanshah.vercel.app/'}>Click to see my Portfolio</Link></Button>
             
         </div>
     );
