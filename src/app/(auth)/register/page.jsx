@@ -1,4 +1,5 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {
   Button,
@@ -18,12 +19,25 @@ const SignUpPage = () => {
 
     const userData = Object.fromEntries(formData.entries());
     console.log(userData);
+
+    const { data, error } = await authClient.signUp.email({
+      name: userData.name,
+      email: userData.email,
+      password: userData.password,
+      image: userData.image,
+      callbackURL: "/",
+    });
+    if (data) {
+      alert("Sign up success.");
+    }
+    if (error) {
+      alert("Sign Up failed " + error.message);
+    }
   };
 
   return (
     <div className="container mx-auto my-12">
-
-        <h2 className="text-3xl font-bold mb-4">Sign Up</h2>
+      <h2 className="text-3xl font-bold mb-4">Sign Up</h2>
       <Form className="flex w-96 flex-col gap-4" onSubmit={onSubmit}>
         <TextField
           isRequired
@@ -54,6 +68,13 @@ const SignUpPage = () => {
           <Input placeholder="Enter Your Email" />
           <FieldError />
         </TextField>
+
+        <TextField isRequired name="image">
+          <Label>Image</Label>
+          <Input placeholder="Image url" />
+          <FieldError />
+        </TextField>
+
         <TextField
           isRequired
           minLength={8}
@@ -80,7 +101,7 @@ const SignUpPage = () => {
           <FieldError />
         </TextField>
         <div className="flex gap-2">
-          <Button className={'bg-fuchsia-500 font-bold'} type="submit">
+          <Button className={"bg-fuchsia-500 font-bold"} type="submit">
             <Check />
             Sign Up
           </Button>
@@ -88,7 +109,9 @@ const SignUpPage = () => {
             Reset
           </Button>
         </div>
-        <Link href={'/login'}><Button>Log in</Button></Link>
+        <Link href={"/login"}>
+          <Button>Log in</Button>
+        </Link>
       </Form>
     </div>
   );
