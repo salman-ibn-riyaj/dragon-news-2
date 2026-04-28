@@ -8,7 +8,6 @@ import { authClient, signOut } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 
 
-
 const Navbar = () => {
     const router = useRouter();
     const { data: session } = authClient.useSession();
